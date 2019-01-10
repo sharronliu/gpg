@@ -395,7 +395,7 @@ void CloudCamera::calculateNormalsOrganized()
   ne.setNormalEstimationMethod(ne.COVARIANCE_MATRIX);
   ne.setNormalSmoothingSize(20.0f);
   ne.compute(*cloud_normals);
-  normals_ = cloud_normals->getMatrixXfMap().cast<double>();
+  normals_ = cloud_normals->getMatrixXfMap(3, sizeof(pcl::Normal)/sizeof(float), 0).cast<double>();
 }
 
 
